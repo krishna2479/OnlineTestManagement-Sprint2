@@ -66,7 +66,6 @@ public class Test {
 	public void setQuestions(Question questions) {
 		this.q = questions;
 	}
-	
-	
 
+	
 }

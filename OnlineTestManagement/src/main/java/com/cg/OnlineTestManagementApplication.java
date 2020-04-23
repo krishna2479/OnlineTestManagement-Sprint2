@@ -26,12 +26,12 @@ public class OnlineTestManagementApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		Test t = new Test();
-		t.setTestId(100);
+		t.setTestId(101);
 		t.setTestTitle("JavaTest");
 		t.setTestTotalMarks(50);
 		t.setTestMarksScored(40);
 		
-		testdao.addTest(t);
+		testdao.create(t);
 		System.out.println("Test added successfully..");
 		
 	}

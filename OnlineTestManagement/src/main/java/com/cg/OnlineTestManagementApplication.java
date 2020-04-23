@@ -31,8 +31,8 @@ public class OnlineTestManagementApplication implements CommandLineRunner {
 		t.setTestTotalMarks(50);
 		t.setTestMarksScored(40);
 		
-		testdao.create(t);
-		System.out.println("inserted");
+		testdao.addTest(t);
+		System.out.println("Test added successfully..");
 		
 	}
 

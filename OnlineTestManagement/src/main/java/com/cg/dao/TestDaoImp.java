@@ -16,10 +16,28 @@ public class TestDaoImp implements TestDaoI {
 	EntityManager em;
 
 	@Override
-	public void create(Test t) {
+	public void addTest(Test t) {
 		em.persist(t);
 	
 	}
+
+	@Override
+	public void deleteTest(int testId) {
+		
+		Test t=em.find(Test.class, testId);
+		em.remove(t);
+	}
+
+	@Override
+	public void updateTest(int testId) {
+		
+		Test t1=em.find(Test.class, testId);
+		t1.setTestTitle("Java Test");
+		System.out.println("Updated...");
+		em.flush();
+	}
+
+	
 
 	
 }

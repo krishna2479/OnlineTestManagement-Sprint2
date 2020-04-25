@@ -15,8 +15,8 @@ import com.cg.entity.Test;
 @SpringBootApplication
 public class OnlineTestManagementApplication implements CommandLineRunner {
 	
-	@Autowired
-	TestDaoI testdao;
+	//@Autowired
+	//TestDaoI testdao;
 
 	public static void main(String[] args) {
 		SpringApplication.run(OnlineTestManagementApplication.class, args);
@@ -24,16 +24,22 @@ public class OnlineTestManagementApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
-		Test t = new Test();
-		t.setTestId(101);
-		t.setTestTitle("JavaTest");
-		t.setTestTotalMarks(50);
-		t.setTestMarksScored(40);
-		
-		testdao.create(t);
-		System.out.println("Test added successfully..");
+		// TODO Auto-generated method stub
 		
 	}
+
+	//@Override
+	//public void run(String... args) throws Exception {
+		
+	//	Test t = new Test();
+	//	t.setTestId(105);
+	//	t.setTestTitle("SpringBoot");
+	//	t.setTestTotalMarks(50);
+	//	t.setTestMarksScored(42);
+		
+	//	testdao.addTest(t);
+	//	System.out.println("Test added successfully..");
+		
+	//}
 
 }

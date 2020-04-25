@@ -1,39 +1,51 @@
 package com.cg.entity;
 
+import java.math.BigDecimal;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.sun.istack.NotNull;
+
 @Entity
+@Repository
 @Table(name="test_table")
+@EnableTransactionManagement
 public class Test {
+
+	
 	
 	@Id
+	@NotNull
 	private int testId;
 	
 	@Column
 	private String testTitle;
 	
+	@OneToMany
+	private Set<Question> testQuestions;
 	@Column
 	private int testTotalMarks;
-	
 	@Column
-	private int testMarksScored;
-	
-	@OneToOne
-	@JoinColumn(name="questionId")
-	private Question q;
+	private double testMarksScored;
 
-	public int getTestId() {
+	public long getTestId() {
 		return testId;
 	}
 
-	public void setTestId(int testId) {
-		this.testId = testId;
+	public void setTestId(int testID) {
+		this.testId = testID;
 	}
+	
 
 	public String getTestTitle() {
 		return testTitle;
@@ -41,6 +53,14 @@ public class Test {
 
 	public void setTestTitle(String testTitle) {
 		this.testTitle = testTitle;
+	}
+
+	public Set<Question> getTestQuestions() {
+		return testQuestions;
+	}
+
+	public void setTestQuestions(Set<Question> testQuestions) {
+		this.testQuestions = testQuestions;
 	}
 
 	public int getTestTotalMarks() {
@@ -51,20 +71,12 @@ public class Test {
 		this.testTotalMarks = testTotalMarks;
 	}
 
-	public int getTestMarksScored() {
+	public double getTestMarksScored() {
 		return testMarksScored;
 	}
 
-	public void setTestMarksScored(int testMarksScored) {
+	public void setTestMarksScored(double testMarksScored) {
 		this.testMarksScored = testMarksScored;
-	}
-
-	public Question getQuestions() {
-		return q;
-	}
-
-	public void setQuestions(Question questions) {
-		this.q = questions;
 	}
 
 	

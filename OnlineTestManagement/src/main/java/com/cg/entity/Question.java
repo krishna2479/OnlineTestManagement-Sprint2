@@ -1,30 +1,34 @@
 package com.cg.entity;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.sun.istack.NotNull;
+
 @Entity
+@Repository
 @Table(name="QuestionsTable")
+@EnableTransactionManagement
 public class Question {
+
 	
-	@OneToOne
-	private Test test;
 	
-	public Test getTest() {
-		return test;
-	}
-	public void setTest(Test test) {
-		this.test = test;
-	}
-	public void setQuestionOptions(String[] questionOptions) {
-		this.questionOptions = questionOptions;
-	}
 	@Id
-	private long questionID;
-	
+	@NotNull
+	//@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer questionID;
 	@Column
 	private String questionOptions[]=new String[3];
 	@Column
@@ -36,14 +40,20 @@ public class Question {
 	@Column
 	private int chosenAnswer;
 	@Column
-	private double marksScored;
+	private BigDecimal marksScored;
+	
+	@ManyToOne
+	@JoinColumn(name="testID")
+	Test test;
 	
 	
 	
-	public long getQuestionID() {
+	
+	
+	public Integer getQuestionID() {
 		return questionID;
 	}
-	public void setQuestionID(long questionID) {
+	public void setQuestionID(Integer questionID) {
 		this.questionID = questionID;
 	}
 	public String[] getQuestionOptions() {
@@ -79,14 +89,25 @@ public class Question {
 	public void setChosenAnswer(int chosenAnswer) {
 		this.chosenAnswer = chosenAnswer;
 	}
-	public double getMarksScored() {
+	public BigDecimal getMarksScored() {
 		return marksScored;
 	}
-	public void setMarksScored(double marksScored) {
+	public void setMarksScored(BigDecimal marksScored) {
 		this.marksScored = marksScored;
 	}
-	public Question(long questionID, String[] questionOptions, String questionTitle, int questionAnswer,
-			double questionMarks, int chosenAnswer, double marksScored) {
+	
+	public Test getTest() {
+		return test;
+	}
+
+	public void setTest(Test test) {
+		this.test = test;
+	}
+	public Question() {
+	}
+
+	public Question(Integer questionID, String[] questionOptions, String questionTitle, int questionAnswer,
+			double questionMarks, int chosenAnswer, BigDecimal marksScored, Test test) {
 		super();
 		this.questionID = questionID;
 		this.questionOptions = questionOptions;
@@ -95,6 +116,7 @@ public class Question {
 		this.questionMarks = questionMarks;
 		this.chosenAnswer = chosenAnswer;
 		this.marksScored = marksScored;
+		this.test = test;
 	}
 	
 	

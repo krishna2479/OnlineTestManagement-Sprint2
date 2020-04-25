@@ -11,7 +11,7 @@ import com.cg.entity.Test;
 public interface TestDaoI {
 
 
-	public void create(Test t);
+	public Test addTest(Test t);
 	
     public void deleteTest(int testId);
 	

@@ -16,8 +16,9 @@ public class TestDaoImp implements TestDaoI {
 	EntityManager em;
 
 	@Override
-	public void create(Test t) {
+	public Test addTest(Test t) {
 		em.persist(t);
+		return t;
 	
 	}
 

@@ -11,7 +11,6 @@ import com.cg.dao.TestDaoI;
 import com.cg.entity.Question;
 import com.cg.entity.Test;
 
-//@Transactional
 @SpringBootApplication
 public class OnlineTestManagementApplication implements CommandLineRunner {
 	
@@ -25,7 +24,7 @@ public class OnlineTestManagementApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Started...");
 	}
 
 	//@Override

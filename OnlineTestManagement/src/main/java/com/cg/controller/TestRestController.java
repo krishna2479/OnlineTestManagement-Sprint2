@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,12 +29,18 @@ public class TestRestController {
 		}
 		
 
-	@DeleteMapping("/deleteById/{testId}")
-	public String deletetestById(@PathVariable int testId)
+	@DeleteMapping("/delete")
+	public String deleteTestById(@PathVariable int testId)
 	{
 		testserviceimp.deleteTest(testId);
-		
 		return "deleted..";
+	}
+	
+	@PutMapping("/update")
+	public String updateTestById(@PathVariable int testId)
+	{
+		testserviceimp.updateTest(testId);
+		return "updated..";
 	}
 	
 	

@@ -2,7 +2,6 @@ package com.cg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,7 +19,7 @@ public class TestRestController {
 	TestServiceImp testserviceimp;
 	 
 	@PostMapping("/add")
-	public String createTest(@RequestBody Test t)
+	public String addTest(@RequestBody Test t)
 	{
 		Test t1=testserviceimp.addTest(t);
 		return t1.getTestTitle() +  "added";
@@ -36,17 +35,11 @@ public class TestRestController {
 		return "deleted..";
 	}
 	
-	@PutMapping("/update")
+	@PutMapping("/update/{test}")
 	public String updateTestById(@PathVariable int testId)
 	{
 		testserviceimp.updateTest(testId);
 		return "updated..";
 	}
-	
-	
-  @ExceptionHandler(Exception.class)
-  public String inValid(Exception e) {
-	  return e.getMessage();
-  }
   
   }

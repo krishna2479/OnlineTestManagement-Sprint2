@@ -1,11 +1,14 @@
 package com.cg.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.dao.TestDaoI;
 import com.cg.entity.Test;
 
+@Transactional
 @Service
 public class TestServiceImp implements TestServiceI {
 	

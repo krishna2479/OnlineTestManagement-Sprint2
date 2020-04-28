@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.cg.entity.Test;
 
-@Transactional
+
 @Repository
 public class TestDaoImp implements TestDaoI {
 	

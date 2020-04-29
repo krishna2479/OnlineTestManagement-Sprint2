@@ -1,5 +1,8 @@
 package com.cg.dao;
 
+import java.util.List;
+
+import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -36,6 +39,12 @@ public class TestDaoImp implements TestDaoI {
 		t1.setTestTitle("Java Test");
 		System.out.println("Updated...");
 		em.flush();
+	}
+
+	@Override
+	public List<Test> getAllTest() {
+		Query query = em.createQuery("Test t");
+		return query.getResultList();
 	}
 
 	

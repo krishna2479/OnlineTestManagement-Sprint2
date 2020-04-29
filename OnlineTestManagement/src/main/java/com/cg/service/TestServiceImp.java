@@ -1,5 +1,7 @@
 package com.cg.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,11 @@ public class TestServiceImp implements TestServiceI {
 	public void updateTest(int testId) {
 		// TODO Auto-generated method stub
 		testdao.updateTest(testId);
+	}
+
+	@Override
+	public List<Test> getAllTest() {
+		return testdao.getAllTest();
 	}
 
 }

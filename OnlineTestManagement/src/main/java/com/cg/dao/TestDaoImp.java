@@ -43,7 +43,7 @@ public class TestDaoImp implements TestDaoI {
 
 	@Override
 	public List<Test> getAllTest() {
-		Query query = em.createQuery("Test t");
+		Query query = em.createQuery("from Test t");
 		return query.getResultList();
 	}
 

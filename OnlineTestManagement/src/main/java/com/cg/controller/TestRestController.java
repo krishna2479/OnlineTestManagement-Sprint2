@@ -16,7 +16,6 @@ import com.cg.entity.Test;
 import com.cg.service.TestServiceI;
 
 @RestController
-@RequestMapping({"/test"})
 public class TestRestController {
 	@Autowired
 	TestServiceI testservice;

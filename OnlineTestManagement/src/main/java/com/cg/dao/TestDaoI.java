@@ -20,6 +20,5 @@ public interface TestDaoI {
 
 	public List<Test> getAllTest();
 	
-	
 
 }

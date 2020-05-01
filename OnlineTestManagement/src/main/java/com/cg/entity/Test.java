@@ -19,9 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.sun.istack.NotNull;
 
 @Entity
-@Repository
 @Table(name="test_table")
-@EnableTransactionManagement
 public class Test {
 
 	

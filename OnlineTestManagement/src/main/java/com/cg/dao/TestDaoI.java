@@ -15,10 +15,12 @@ public interface TestDaoI {
 	public Test addTest(Test t);
 	
     public void deleteTest(int testId);
-	
-	public void updateTest(int testId);
 
 	public List<Test> getAllTest();
+
+	public Test findById(int testId);
+
+	void updateTest(Test test);
 	
 
 }

@@ -47,9 +47,9 @@ public class TestRestController {
 	}
 	
 	@PutMapping("/update/{testId}")
-	public String updateTestById(@PathVariable int testId)
+	public String updateTestById(@PathVariable int testId,@RequestBody Test t)
 	{
-		testservice.updateTest(testId);
+		testservice.updateTest(testId,t);
 		return "updated..";
 	}
   

@@ -11,10 +11,9 @@ import org.springframework.stereotype.Repository;
 
 import com.cg.entity.Test;
 
-
 @Repository
 public class TestDaoImp implements TestDaoI {
-	
+
 	@PersistenceContext
 	EntityManager em;
 
@@ -22,23 +21,14 @@ public class TestDaoImp implements TestDaoI {
 	public Test addTest(Test t) {
 		em.persist(t);
 		return t;
-	
+
 	}
 
 	@Override
 	public void deleteTest(int testId) {
-		
-		Test t=em.find(Test.class, testId);
-		em.remove(t);
-	}
 
-	@Override
-	public void updateTest(int testId) {
-		
-		Test t1=em.find(Test.class, testId);
-		t1.setTestTitle("Java Test");
-		System.out.println("Updated...");
-		em.flush();
+		Test t = em.find(Test.class, testId);
+		em.remove(t);
 	}
 
 	@Override
@@ -46,8 +36,15 @@ public class TestDaoImp implements TestDaoI {
 		Query query = em.createQuery("from Test t");
 		return query.getResultList();
 	}
-
+	@Override
+	public Test findById(int testId) {
+		Test t = em.find(Test.class, testId);
+		return t;
+	}
 	
-
-	
+	@Override
+	public void updateTest(Test test)
+	{
+		em.merge(test);
+	}
 }

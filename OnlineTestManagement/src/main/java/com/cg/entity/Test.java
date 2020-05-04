@@ -1,25 +1,15 @@
 package com.cg.entity;
 
-import java.math.BigDecimal;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="test_table")
+@Table(name="myTable")
 public class Test {
 
 	
@@ -32,18 +22,16 @@ public class Test {
 	@Column
 	private String testTitle;
 	
-	@OneToMany
-	private Set<Question> testQuestions;
 	@Column
 	private int testTotalMarks;
 	@Column
-	private double testMarksScored;
+	private String timeAllowed;
+	
 
 	public long getTestId() {
 		return testId;
 	}
 
-	
 
 	public String getTestTitle() {
 		return testTitle;
@@ -51,14 +39,6 @@ public class Test {
 
 	public void setTestTitle(String testTitle) {
 		this.testTitle = testTitle;
-	}
-
-	public Set<Question> getTestQuestions() {
-		return testQuestions;
-	}
-
-	public void setTestQuestions(Set<Question> testQuestions) {
-		this.testQuestions = testQuestions;
 	}
 
 	public int getTestTotalMarks() {
@@ -69,12 +49,14 @@ public class Test {
 		this.testTotalMarks = testTotalMarks;
 	}
 
-	public double getTestMarksScored() {
-		return testMarksScored;
+	public String getTimeAllowed() {
+		return timeAllowed;
 	}
 
-	public void setTestMarksScored(double testMarksScored) {
-		this.testMarksScored = testMarksScored;
+
+
+	public void setTimeAllowed(String timeAllowed) {
+		this.timeAllowed = timeAllowed;
 	}
 
 	

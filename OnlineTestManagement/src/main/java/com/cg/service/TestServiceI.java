@@ -10,7 +10,7 @@ public interface TestServiceI {
 	
 	public void deleteTest(int testId );
 	
-	public void updateTest(int testId);
+	public void updateTest(int testId,Test updatedTest);
 
 	public List<Test> getAllTest();
 

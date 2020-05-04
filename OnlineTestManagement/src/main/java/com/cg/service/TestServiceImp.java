@@ -30,11 +30,12 @@ public class TestServiceImp implements TestServiceI {
 	}
 
 	@Override
-	public void updateTest(int testId) {
-		// TODO Auto-generated method stub
-		testdao.updateTest(testId);
+	public void updateTest(int testId, Test updatedTest )
+	{
+	  Test test=testdao.findById(testId);
+	   test=updatedTest;
+	   testdao.updateTest(test);
 	}
-
 	@Override
 	public List<Test> getAllTest() {
 		return testdao.getAllTest();

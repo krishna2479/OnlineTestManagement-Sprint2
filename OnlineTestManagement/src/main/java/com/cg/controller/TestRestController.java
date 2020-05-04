@@ -3,6 +3,7 @@ package com.cg.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,16 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.entity.Test;
 import com.cg.service.TestServiceI;
 
+@CrossOrigin(origins="*")
 @RestController
 public class TestRestController {
 	@Autowired
 	TestServiceI testservice;
 	 
-	@PostMapping("/add")
+	@PostMapping(value="/add")
 	public String addTest(@RequestBody Test t)
 	{
 		Test t1=testservice.addTest(t);
-		return t1.getTestTitle() +  "added";
+		return t1.getTestTitle() + " "+ "added";
   
 	
 		}
@@ -34,16 +36,17 @@ public class TestRestController {
 	{
 		return testservice.getAllTest();
 	}
+	
 		
 
-	@DeleteMapping("/delete")
+	@DeleteMapping("/delete/{testId}")
 	public String deleteTestById(@PathVariable int testId)
 	{
 		testservice.deleteTest(testId);
 		return "deleted..";
 	}
 	
-	@PutMapping("/update/{test}")
+	@PutMapping("/update/{testId}")
 	public String updateTestById(@PathVariable int testId)
 	{
 		testservice.updateTest(testId);

@@ -1,0 +1,22 @@
+<section class="col-md-10 mx-auto mt-4">
+
+    <form #frm="ngForm" (ngSubmit)="update()">
+
+        <div class="mt-3">Test ID</div>
+        <div><input type="text" name="txttitle" [(ngModel)]="test.testId" class="form-conrol" id="testId"
+             placeholder="Enter Test ID" required/></div>
+
+        <div class="mt-3">Test Title</div>
+        <div><input type="text" name="txttitle" [(ngModel)]="test.testTitle" class="form-conrol" id="testTitle"
+             placeholder="Enter Title" required/></div>
+        <div class="mt-3">Total Marks</div>
+        <div><input type="text" name="txtmarks" [(ngModel)]="test.testTotalMarks" class="form-conrol" id="testTotalMarks"
+                placeholder="Enter Total Marks" required/></div>     
+        <div class="mt-3">Time Allowed</div>
+        <div><input type="text" name="txttime" [(ngModel)]="test.timeAllowed" class="form-conrol" id="timeAllowed"
+                placeholder="Enter Time Allowed" required/></div>
+
+        <div class="mt-3"><input type="submit"[disabled]="!frm.valid" class="btn btn-outline-dark"/></div>
+    </form>
+
+</section>

@@ -29,7 +29,7 @@ public class TestRestController {
 	@PostMapping("/add")
 	public ResponseEntity<String> addTest(@RequestBody Test t){
 		if(t.getTestTotalMarks()>100)throw new TestException("Total Marks should be less than 100");
-		Test tk = testservice.addTest(t);
+		testservice.addTest(t);
 		return new ResponseEntity<String>("Test added ", HttpStatus.OK);
 	}
 	
@@ -39,23 +39,20 @@ public class TestRestController {
 		List<Test> lt = testservice.getAllTest();
 		return new ResponseEntity<List<Test>>(lt,HttpStatus.OK);
 	}
-	
-	@DeleteMapping("/delete/{testId}")
-	public ResponseEntity <String> deleteTest(@PathVariable int testId, @RequestBody Test t){
-		if(testId!=t.getTestId()) throw new TestException("Test not found");
-		testservice.deleteTest(testId);
-		return new ResponseEntity<String>("Test deleted ", HttpStatus.OK);
 		
+	@DeleteMapping("/delete/{testId}")
+	public String deleteTestById(@PathVariable int testId)
+	{
+		testservice.deleteTest(testId);
+		return "Test deleted.";
 	}
-
-	
 	
 
 	@PutMapping("/update/{testId}")
 	public String updateTestById(@PathVariable int testId,@RequestBody Test t)
 	{
 		testservice.updateTest(testId,t);
-		return "updated..";
+		return "Test updated.";
 	}
   
   }

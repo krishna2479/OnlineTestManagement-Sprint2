@@ -18,9 +18,9 @@ public class User {
 	private String userPassword;
 	@Column
 	private boolean isAdmin;
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name="testId")
-	private Test userTest;
+	private Test userTest;*/
 	
 	
 	public User(long userId, String userName, String userPassword, boolean isAdmin, Test userTest) {
@@ -29,7 +29,7 @@ public class User {
 		this.userName = userName;
 		this.userPassword = userPassword;
 		this.isAdmin = isAdmin;
-		this.userTest = userTest;
+		//this.userTest = userTest;
 	}
 	public User() {
 		super();
@@ -58,11 +58,11 @@ public class User {
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
-	public Test getUserTest() {
+	/*public Test getUserTest() {
 		return userTest;
 	}
 	public void setUserTest(Test userTest) {
 		this.userTest = userTest;
-	}
+	}*/
 	
 	}

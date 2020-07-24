@@ -18,9 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.sun.istack.NotNull;
 
 @Entity
-@Repository
 @Table(name="QuestionsTable")
-@EnableTransactionManagement
 public class Question {
 
 	
@@ -42,9 +40,9 @@ public class Question {
 	@Column
 	private BigDecimal marksScored;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="testID")
-	Test test;
+	Test test;*/
 	
 	
 	
@@ -96,13 +94,13 @@ public class Question {
 		this.marksScored = marksScored;
 	}
 	
-	public Test getTest() {
+	/*public Test getTest() {
 		return test;
 	}
 
 	public void setTest(Test test) {
 		this.test = test;
-	}
+	}*/
 	public Question() {
 	}
 
@@ -116,7 +114,7 @@ public class Question {
 		this.questionMarks = questionMarks;
 		this.chosenAnswer = chosenAnswer;
 		this.marksScored = marksScored;
-		this.test = test;
+		//this.test = test;
 	}
 	
 	

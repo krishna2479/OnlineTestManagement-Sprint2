@@ -34,7 +34,6 @@ public class OnlineTestManagementApplication implements CommandLineRunner {
 	//	t.setTestId(105);
 	//	t.setTestTitle("SpringBoot");
 	//	t.setTestTotalMarks(50);
-	//	t.setTestMarksScored(42);
 		
 	//	testdao.addTest(t);
 	//	System.out.println("Test added successfully..");
